@@ -8,6 +8,6 @@ type Onion struct {
 	ServiceID string
 	// Base64 encoded private key for the hidden service.
 	PrivateKey string
-	// Type of private key (RSA1024 or ED25519-V3).
+	// Type of private key (ED25519-V3).
 	PrivateKeyType string
 }
