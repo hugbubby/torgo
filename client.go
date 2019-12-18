@@ -21,3 +21,15 @@ func NewClient(addr string) (*http.Client, error) {
 	t := &http.Transport{Dial: d.Dial}
 	return &http.Client{Transport: t}, nil
 }
+
+func NewTransport(addr string) (*http.Transport, error) {
+    u, err := url.Parse("socks5://" + addr)
+	if err != nil {
+		return nil, err
+	}
+	d, err := proxy.FromURL(u, proxy.Direct)
+	if err != nil {
+		return nil, err
+	}
+	return &http.Transport{Dial: d.Dial}, nil
+}
