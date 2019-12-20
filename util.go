@@ -5,7 +5,7 @@ import (
 	"strings"
 )
 
-func isValidHiddenServiceId(service string) bool {
+func IsValidHiddenServiceId(service string) bool {
 	service = strings.TrimSuffix(service, ".onion")
 	if match, _ := regexp.Match("^[a-z2-7]{16}$", []byte(service)); match {
 		return true
